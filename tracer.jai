@@ -42,9 +42,7 @@ intersect :: (s: Sphere, r: Ray) -> (hit: bool, distance: float, point: Vector3,
 normalized_ray_from_to :: (a: Vector3, b: Vector3) -> Ray #must {
     r : Ray;
     r.origin = a;
-    r.direction.x = b.x - a.x;
-    r.direction.y = b.y - a.y;
-    r.direction.z = b.z - a.z;
+    r.direction = b - a;
     normalize(*r.direction, 0, r.direction);
     return r;
 }
